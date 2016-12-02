@@ -88,9 +88,17 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Calculates the price of the order.
      *
-     *@return total price
+     *@return total price of order
      */
     private int calculatePrice() {
-        return quantity * 5;
+        if (hasWhippedCream == true && hasChocolate == true) {
+            return quantity * 8;
+        } else if(hasWhippedCream == true && hasChocolate == false){
+            return quantity * 6;
+        } else if (hasWhippedCream == false && hasChocolate == true) {
+            return quantity * 7;
+        } else {
+            return quantity * 5;
+        }
     }
 }
