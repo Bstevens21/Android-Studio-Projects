@@ -1,6 +1,9 @@
 package com.example.android.justjava;
 
 import java.text.NumberFormat;
+
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -29,13 +32,26 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+        //Checks to to see if whipped cream checkbox is checked
         CheckBox whippedCream = (CheckBox) findViewById(R.id.whipped_cream_checkbox);
         hasWhippedCream = whippedCream.isChecked();
+
+        //Checks to to see if chocolate checkbox is checked
         CheckBox chocolate = (CheckBox) findViewById(R.id.chocolate_checkbox);
         hasChocolate = chocolate.isChecked();
+
+        //Grabs text from EditText view and coverts it to a string
         EditText customerName = (EditText) findViewById(R.id.name_edit_text);
         customer = customerName.getText().toString();
-        displayMessage(createOrderSummary());
+
+        //Creates email with coffee order
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+           intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Coffee Order");
+        intent.putExtra(Intent.EXTRA_TEXT, createOrderSummary());
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -44,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
      *@return text summary
      */
     private String createOrderSummary() {
-        String priceMessage = " Name: " + customer;
-        priceMessage += "\n Add whipped cream? " + hasWhippedCream;
-        priceMessage += "\n Add chocolate? " + hasChocolate;
-        priceMessage += "\n Qunatity: " + quantity;
-        priceMessage += "\n Total: $" + calculatePrice();
-        priceMessage += "\n Thank You!";
+        String priceMessage = " "+ getString(R.string.enter_name, customer);
+        priceMessage += "\n"+ getString(R.string.add_whipped_cream) + hasWhippedCream;
+        priceMessage += "\n"+ getString(R.string.add_chocolate) + hasChocolate;
+        priceMessage += "\n"+ getString(R.string.Quantity_java) + quantity;
+        priceMessage += "\n"+ getString(R.string.total_$) + calculatePrice();
+        priceMessage += "\n"+ getString(R.string.thank_you);
         displayMessage(priceMessage);
         return priceMessage;
     }

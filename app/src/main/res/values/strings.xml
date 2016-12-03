@@ -1,3 +1,27 @@
-<resources>
+<resources xmlns:xliff="http://schemas.android.com/tools">
     <string name="app_name">Just Java</string>
+
+    <string name="toppings">Toppings</string>
+
+    <string name="whipped_cream">Whipped cream</string>
+
+    <string name="chocolate">Chocolate</string>
+
+    <string name="quantity_header">Quantity</string>
+
+    <string name="order_summary">Order Summary</string>
+
+    <string name="order">Order</string>
+
+    <string name="add_whipped_cream">Add whipped cream? </string>
+
+    <string name="add_chocolate">Add chocolate? </string>
+
+    <string name="Quantity_java">Quantity: </string>
+
+    <string name="total_$">Total: $</string>
+
+    <string name="thank_you">Thank you!</string>
+
+    <string name="enter_name">Name: <xliff:g id="name" example="Blake">%s</xliff:g></string>
 </resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="http://schemas.android.com/tools">
+    <string name="Quantity_java">Cantidad: </string>
+    <string name="add_chocolate">" ¿Añadir chocolate? "</string>
+    <string name="add_whipped_cream">" ¿Añadir crema batida? "</string>
+    <string name="app_name">Solo Java</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="order">Orden</string>
+    <string name="order_summary">Resumen del pedido</string>
+    <string name="quantity_header">Cantidad</string>
+    <string name="thank_you">Gracias!</string>
+    <string name="toppings">Coberturas</string>
+    <string name="total_$">Total: $</string>
+    <string name="whipped_cream">Crema batida</string>
+    <string name="enter_name">Nombre: <xliff:g id="name" example="Blake">%s</xliff:g></string>
+</resources>
